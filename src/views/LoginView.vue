@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="m-20">
+    <h1 class="text-3xl font-bold">Welcome To The Expense Tracker Project</h1>
+    <p class="text-lg">A Minimalistical Style Project</p>
+  </div>
+  <div class="m-10">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <div class="wrap" v-if="!isLoggedIn">
       <h1>Register</h1>
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="handleRegister">
         <div class="input-container">
           <input
             class="input-box"
@@ -26,15 +30,8 @@
           <i class="bx bx-lock icon"></i>
         </div>
         <p></p>
-        <button type="submit" class="button">Login</button>
+        <button type="submit" class="button">Register now!</button>
       </form>
-    </div>
-
-    <div v-else class="logOut">
-      <i class="bx bxs-user-circle registered"></i>
-      <h2 class="outText">Logged in</h2>
-      <p class="outText">Welcome {{ username }}</p>
-      <button @click="logout" class="outButton">Logout</button>
     </div>
   </div>
 </template>
@@ -52,18 +49,19 @@ export default {
 
     const router = useRouter()
 
-    const handleSubmit = async () => {
+    const handleRegister = async () => {
       try {
+        await authStore.register(username.value, password.value)
+        console.log('Registration successful!')
         await authStore.login(authStore, username.value, password.value)
+        redirect()
       } catch (error) {
-        console.error(error)
+        console.error('Usuario ou senha incorreto(s)')
       }
     }
 
-    const logout = () => {
-      authStore.logout(authStore)
-      authStore.isLoggedIn = false
-      router.go(-1)
+    const redirect = () => {
+      router.push('/MainPage')
     }
 
     const isLoggedIn = computed(() => authStore.isLoggedIn)
@@ -71,8 +69,7 @@ export default {
     return {
       username,
       password,
-      handleSubmit,
-      logout,
+      handleRegister,
       isLoggedIn
     }
   }
@@ -82,14 +79,24 @@ export default {
 <style scoped>
 .wrap {
   width: 300px;
-  background: #e2e6e3d8;
+  background: rgb(229 231 235);
   height: 200px;
-
-  margin: 0%;
+  margin-left: 20%;
+  margin-top: -5%;
   border-radius: 10px;
 }
+@media (max-width: 600px) {
+  .wrap {
+    margin-top: 60px;
+    margin-left: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .wrap h1 {
-  color: #42b883;
+  color: black;
   font-size: xx-large;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
@@ -140,12 +147,11 @@ export default {
 .button {
   width: 50%;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 1rem;
   color: #333;
 }
 .wrap .button {
   width: 100%;
-  height: 40px;
   border-radius: 40px;
 }
 .registered {
