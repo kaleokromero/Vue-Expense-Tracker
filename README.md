@@ -1,4 +1,5 @@
-
+# Back end is currently being made, using mongodb and express.js
+# Back end em produção, sendo feito com mongodb e express.js
 # Vue Expense Tracker
 
 The **Vue Expense Tracker** is a powerful and intuitive web application designed to help users manage their personal finances effectively. This project leverages modern web technologies and libraries to provide a seamless and efficient user experience.
