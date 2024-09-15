@@ -22,7 +22,7 @@ export default {
   setup() {
     const expense = ref('')
     const value = ref(0)
-    const expenses = ref(['Bills', 'Food', 'Utilities'])
+    const expenses = ref(['Bills', 'Food', 'Utilities', 'Investments', 'Fun'])
     const store = useExpStore()
 
     watch(expense, (newVal, oldVal) => {

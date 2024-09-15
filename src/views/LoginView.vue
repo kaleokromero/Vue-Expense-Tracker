@@ -57,6 +57,7 @@ export default {
         redirect()
       } catch (error) {
         console.error('Usuario ou senha incorreto(s)')
+        alert('Wrong password')
       }
     }
 

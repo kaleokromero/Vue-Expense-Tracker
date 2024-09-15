@@ -7,7 +7,9 @@ export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
     users: [''],
-    currentUser: ref(null)
+    currentUser: ref(null),
+    token: null,
+    isLoggedIn: false
   }),
   actions: {
     //delete user inputs after logout

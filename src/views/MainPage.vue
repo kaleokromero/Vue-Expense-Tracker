@@ -91,7 +91,6 @@ const expStore = useExpStore()
 const user = computed(() => authStore.user)
 const hasExpenses = computed(() => expStore.totalExpenses > 0)
 
-//Side bar toggle
 const sideBarOpen = ref(true)
 const toggleBar = () => {
   sideBarOpen.value = !sideBarOpen.value

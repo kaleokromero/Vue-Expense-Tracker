@@ -16,7 +16,9 @@ import {
   faChartLine,
   faCreditCardAlt,
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
+  faGift,
+  faArrowTrendUp
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -33,7 +35,9 @@ library.add(
   faChartLine,
   faCreditCardAlt,
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
+  faGift,
+  faArrowTrendUp
 )
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('apex-chart', VueApexCharts)

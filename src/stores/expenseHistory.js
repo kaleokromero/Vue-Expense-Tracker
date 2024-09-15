@@ -9,7 +9,9 @@ export const useExpStore = defineStore({
     expenses: [
       { name: 'Bills', value: 0, icon: 'house-medical' },
       { name: 'Food', value: 0, icon: 'utensils' },
-      { name: 'Utilities', value: 0, icon: 'car' }
+      { name: 'Utilities', value: 0, icon: 'car' },
+      { name: 'Investments', value: 0, icon: 'arrow-trend-up' },
+      { name: 'Fun', value: 0, icon: 'gift' }
     ],
 
     chartOptions: { xaxis: { categories: ['donut', 'bar'] } },
@@ -66,9 +68,11 @@ export const useExpStore = defineStore({
       ;(this.expenses = [
         { name: 'Bills', value: 0, icon: 'house-medical' },
         { name: 'Food', value: 0, icon: 'utensils' },
-        { name: 'Utilities', value: 0, icon: 'car' }
+        { name: 'Utilities', value: 0, icon: 'car' },
+        { name: 'Investments', value: 0, icon: 'arrow-trend-up' },
+        { name: 'Fun', value: 0, icon: 'gift' }
       ]),
-        (this.chartSeries[0].data = [0, 0, 0])
+        (this.chartSeries[0].data = [0, 0, 0, 0, 0])
     }
   }
 })
